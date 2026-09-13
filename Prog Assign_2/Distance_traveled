@@ -1,0 +1,24 @@
+class Car:
+    """Represents a car traveling at a constant speed."""
+
+    def __init__(self, speed: float):
+        # Store the speed as an attribute of the object
+        self.speed = speed
+
+    def get_distance(self, time: float) -> float:
+        # Distance = Speed x Time
+        return self.speed * time
+
+
+# Create a Car object with a constant speed of 70 mph
+my_car = Car(70.0)
+
+# Calculate distance traveled for 6, 10, and 15 hours
+distance_6_hours = my_car.get_distance(6)
+distance_10_hours = my_car.get_distance(10)
+distance_15_hours = my_car.get_distance(15)
+
+# Display the results
+print(f"In 6 hours, the car will travel {distance_6_hours} miles.")
+print(f"In 10 hours, the car will travel {distance_10_hours} miles.")
+print(f"In 15 hours, the car will travel {distance_15_hours} miles.")
