@@ -1,0 +1,62 @@
+# Avery Mitchell
+# COSC 1010 500
+# Prog Assign 500
+
+# Paint Job Estimator
+# This program estimates the cost of a paint job based on the
+# square feet of wall space and the price of paint per gallon.
+
+# Constants
+SQ_FT_PER_GALLON = 112      # Square feet covered by one gallon of paint
+HOURS_PER_GALLON = 8        # Hours of labor required per gallon of paint
+LABOR_RATE = 35.00          # Labor charge per hour
+
+
+def main():
+    # Get the input from the user
+    square_feet = float(input('Enter the square feet of wall space to be painted: '))
+    paint_price = float(input('Enter the price of the paint per gallon: $'))
+
+    # Calculate and display the estimate
+    gallons = calc_gallons(square_feet)
+    hours = calc_labor_hours(gallons)
+    paint_cost = calc_paint_cost(gallons, paint_price)
+    labor_cost = calc_labor_cost(hours)
+    total_cost = paint_cost + labor_cost
+
+    display_estimate(gallons, hours, paint_cost, labor_cost, total_cost)
+
+
+def calc_gallons(square_feet):
+    # Return the number of gallons of paint required
+    return square_feet / SQ_FT_PER_GALLON
+
+
+def calc_labor_hours(gallons):
+    # Return the hours of labor required
+    return gallons * HOURS_PER_GALLON
+
+
+def calc_paint_cost(gallons, paint_price):
+    # Return the cost of the paint
+    return gallons * paint_price
+
+
+def calc_labor_cost(hours):
+    # Return the labor charges
+    return hours * LABOR_RATE
+
+
+def display_estimate(gallons, hours, paint_cost, labor_cost, total_cost):
+    # Display the paint job estimate
+    print()
+    print('----- Paint Job Estimate -----')
+    print(f'Gallons of paint required: {gallons:.2f}')
+    print(f'Hours of labor required:   {hours:.2f}')
+    print(f'Cost of the paint:         ${paint_cost:,.2f}')
+    print(f'Labor charges:             ${labor_cost:,.2f}')
+    print(f'Total cost of the job:     ${total_cost:,.2f}')
+
+
+# Call the main function
+main()
