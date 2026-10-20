@@ -1,0 +1,72 @@
+# Alphabetic Telephone Number Translator
+# COSC 1010
+# Avery Mitchell
+#
+# This program asks the user for a 10-character telephone number in the
+# format XXX-XXX-XXXX. Any letters in the number are translated to the
+# digit they map to on a standard telephone keypad, and the translated
+# number is displayed.
+
+
+def translate_char(ch):
+    """Return the keypad digit for a letter, or the character unchanged."""
+    ch = ch.upper()
+
+    if ch in 'ABC':
+        return '2'
+    elif ch in 'DEF':
+        return '3'
+    elif ch in 'GHI':
+        return '4'
+    elif ch in 'JKL':
+        return '5'
+    elif ch in 'MNO':
+        return '6'
+    elif ch in 'PQRS':
+        return '7'
+    elif ch in 'TUV':
+        return '8'
+    elif ch in 'WXYZ':
+        return '9'
+    else:
+        # Digits and dashes stay the same
+        return ch
+
+
+def is_valid_format(phone):
+    """Check that the number is in the format XXX-XXX-XXXX."""
+    if len(phone) != 12:
+        return False
+    if phone[3] != '-' or phone[7] != '-':
+        return False
+
+    # Every character other than the dashes must be a letter or digit
+    for i in range(len(phone)):
+        if i == 3 or i == 7:
+            continue
+        if not phone[i].isalnum():
+            return False
+    return True
+
+
+def main():
+    print('Alphabetic Telephone Number Translator')
+    print('--------------------------------------')
+
+    phone = input('Enter a telephone number in the format XXX-XXX-XXXX: ').strip()
+
+    # Keep asking until the user enters a valid format
+    while not is_valid_format(phone):
+        print('Invalid format. Please use XXX-XXX-XXXX (example: 555-GET-FOOD).')
+        phone = input('Enter a telephone number in the format XXX-XXX-XXXX: ').strip()
+
+    # Build the translated number one character at a time
+    translated = ''
+    for ch in phone:
+        translated += translate_char(ch)
+
+    print('The translated telephone number is:', translated)
+
+
+# Call the main function
+main()
