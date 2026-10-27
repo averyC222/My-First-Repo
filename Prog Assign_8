@@ -1,0 +1,53 @@
+# Number Analysis Program
+# Author: Avery Mitchell
+# COSC 1010 - Programming Assignment 8: Lists
+#
+# This program asks the user to enter 20 numbers, stores them in a list,
+# and then displays the lowest, highest, total, and average of the numbers.
+
+# Constant for how many numbers the user will enter
+NUM_COUNT = 20
+
+
+def get_numbers():
+    """Ask the user for NUM_COUNT numbers and return them in a list."""
+    numbers = []
+
+    for i in range(NUM_COUNT):
+        while True:
+            try:
+                value = float(input(f"Enter number {i + 1} of {NUM_COUNT}: "))
+                numbers.append(value)
+                break
+            except ValueError:
+                print("That's not a valid number. Please try again.")
+
+    return numbers
+
+
+def main():
+    print("Number Analysis Program")
+    print("-----------------------")
+
+    # Get the numbers from the user and store them in a list
+    numbers = get_numbers()
+
+    # Calculate the data
+    lowest = min(numbers)
+    highest = max(numbers)
+    total = sum(numbers)
+    average = total / len(numbers)
+
+    # Display the results
+    print()
+    print("Results")
+    print("-------")
+    print(f"Numbers entered: {numbers}")
+    print(f"Lowest number:   {lowest:.2f}")
+    print(f"Highest number:  {highest:.2f}")
+    print(f"Total:           {total:.2f}")
+    print(f"Average:         {average:.2f}")
+
+
+# Call the main function
+main()
