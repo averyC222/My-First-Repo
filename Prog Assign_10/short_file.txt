@@ -1,0 +1,3 @@
+This file only has three lines.
+So the program should display all of them.
+That's the end of this file.

@@ -1,0 +1,8 @@
+Line 1: Python makes working with files simple.
+Line 2: The open() function opens a file.
+Line 3: A for loop can read a file one line at a time.
+Line 4: The with statement closes the file automatically.
+Line 5: This is the last line the program should display.
+Line 6: This line should NOT be displayed.
+Line 7: This line should NOT be displayed either.
+Line 8: End of the file.
